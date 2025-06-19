@@ -84,23 +84,23 @@ Tạo một Google Sheet có cấu trúc cột như sau. Tên cột (dòng đầ
 4.  **Lưu tệp Cookie**:
     -   Tạo một tệp mới tên là `x-cookies.json` trong thư mục `D:\n8n_share` trên máy tính windows của bạn (đây là thư mục mặc định mà n8n có thể truy cập).
     -   Dán nội dung JSON đã sao chép vào tệp này và lưu lại.
-    -   Khi cấu hình node Read/Write From Disk trong n8n, chỉ cần nhập đường dẫn **/files/x-cookies.json** là sẽ truy cập được tệp.
+    -   Khi cấu hình node Read/Write From Disk trong n8n, chỉ cần nhập đường dẫn **/files/cookies/x-cookies.json** là sẽ truy cập được tệp.
 
 ## Hướng dẫn sử dụng
 
-1.  **Tải Workflow**: Lưu tệp `X_community.json` vào máy tính của bạn.
+1.  **Tải Workflow**: **Tạm thời mình chưa cung cấp.**
 2.  **Import vào n8n**:
     -   Trong giao diện n8n, chọn **Import > From File**.
     -   Chọn tệp `X_community.json` để tải lên.
 3.  **Cấu hình các Node**:
-    -   **Node `My Content1` (Google Sheets)**:
+    -   **Node `Content` (Google Sheets)**:
         -   Chọn credential Google Sheets bạn đã tạo.
         -   Trong mục **Document ID**, dán ID của Google Sheet của bạn.
         -   Trong mục **Sheet Name**, chọn đúng trang tính chứa dữ liệu.
     -   **Node `load_cookies_file` (Read Binary File)**:
         -   Kiểm tra lại đường dẫn trong mục **File Path**. Mặc định là `/files/cookies/x-cookies.json`. Hãy chắc chắn rằng bạn đã tạo tệp cookie đúng vị trí này trong thư mục dữ liệu của n8n.
     -   **Node `đóng gói` (Code)**:
-        -   Kiểm tra lại cách workflow lấy dữ liệu: `$('My Content1').first().json.CONTENT` và `$('My Content1').first().json.GROUP`. Đảm bảo tên cột trong Google Sheet của bạn khớp với `CONTENT` và `GROUP`.
+        -   Kiểm tra lại cách workflow lấy dữ liệu: `$('Content').first().json.CONTENT` và `$('My Content1').first().json.GROUP`. Đảm bảo tên cột trong Google Sheet của bạn khớp với `CONTENT` và `GROUP`.
 4.  **Lưu và Kích hoạt**:
     -   Lưu lại workflow.
     -   Nhấn **Execute Workflow** để chạy thử.
